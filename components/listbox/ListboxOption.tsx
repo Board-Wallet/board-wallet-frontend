@@ -1,7 +1,7 @@
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Listbox as HeadlessListbox } from '@headlessui/react';
-import clsx from 'clsx';
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Listbox as HeadlessListbox } from "@headlessui/react";
+import clsx from "clsx";
 
 type Props = {
   className?: string;
@@ -13,8 +13,8 @@ const ListboxOption = ({ className, children }: Props) => {
     <HeadlessListbox.Option
       className={({ active }) =>
         clsx(
-          'relative cursor-default select-none py-2 pl-10 pr-4',
-          active ? 'bg-purple-100/40 text-blue-dark' : 'text-gray-900',
+          "relative cursor-default select-none py-2 pl-10 pr-4",
+          active ? "bg-purple-100/40 text-blue-dark" : "text-gray-900",
           className
         )
       }
@@ -24,7 +24,7 @@ const ListboxOption = ({ className, children }: Props) => {
         <>
           <span
             className={`block truncate ${
-              selected ? 'font-medium' : 'font-normal'
+              selected ? "font-medium" : "font-normal"
             }`}
           >
             {children}

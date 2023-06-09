@@ -1,7 +1,7 @@
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Listbox as HeadlessListbox, Transition } from '@headlessui/react';
-import clsx from 'clsx';
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Listbox as HeadlessListbox, Transition } from "@headlessui/react";
+import clsx from "clsx";
 import React, {
   Children,
   cloneElement,
@@ -9,7 +9,7 @@ import React, {
   ReactElement,
   useMemo,
   useState,
-} from 'react';
+} from "react";
 
 type Props = {
   className?: string;
@@ -30,7 +30,7 @@ const Listbox = ({ children, className }: Props) => {
   );
 
   return (
-    <div className={clsx('w-72', className)}>
+    <div className={clsx("w-72", className)}>
       <HeadlessListbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <HeadlessListbox.Button className="relative w-full cursor-pointer rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 sm:text-sm">

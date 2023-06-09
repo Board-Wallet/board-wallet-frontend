@@ -1,6 +1,6 @@
-import { RadioGroup as HeadlessRadioGroup } from '@headlessui/react';
-import clsx from 'clsx';
-import { useState } from 'react';
+import { RadioGroup as HeadlessRadioGroup } from "@headlessui/react";
+import clsx from "clsx";
+import { useState } from "react";
 
 type Props = {
   className?: string;
@@ -12,7 +12,7 @@ const RadioGroup = ({ children, className, name }: Props) => {
   const [selected, setSelected] = useState();
 
   return (
-    <div className={clsx('flex w-full flex-col', className)}>
+    <div className={clsx("flex w-full flex-col", className)}>
       <HeadlessRadioGroup value={selected} onChange={setSelected} name={name}>
         <HeadlessRadioGroup.Label className="sr-only">
           Value

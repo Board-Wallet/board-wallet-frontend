@@ -1,4 +1,4 @@
-import { model, models, Schema } from 'mongoose';
+import { model, models, Schema } from "mongoose";
 
 const TestamentSchema = new Schema({
   signatures: [
@@ -11,6 +11,6 @@ const TestamentSchema = new Schema({
   protectedTokens: [String],
 });
 
-const ModelTestament = models.Testament || model('Testament', TestamentSchema);
+const ModelTestament = models.Testament || model("Testament", TestamentSchema);
 
 export default ModelTestament;

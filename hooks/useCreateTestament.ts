@@ -1,10 +1,10 @@
-import { DeepPartial, TestamentCreationParams } from 'utils/Types';
+import { DeepPartial, TestamentCreationParams } from "utils/Types";
 import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
-} from 'wagmi';
-import useGetDynamicVaults from './utils/useGetDynamicVaults';
+} from "wagmi";
+import useGetDynamicVaults from "./utils/useGetDynamicVaults";
 
 const useCreateTestament = (
   ...[inactivityMaximum, beneficiaries]: DeepPartial<TestamentCreationParams>
@@ -12,9 +12,9 @@ const useCreateTestament = (
   const dynamicVaults = useGetDynamicVaults();
 
   const prepareTransact = usePrepareContractWrite({
-    address: dynamicVaults?.address ?? '',
+    address: dynamicVaults?.address ?? "",
     abi: dynamicVaults?.abi,
-    functionName: 'createTestament',
+    functionName: "createTestament",
     args: [
       inactivityMaximum,
       beneficiaries,

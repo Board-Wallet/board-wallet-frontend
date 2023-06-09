@@ -1,7 +1,7 @@
-import clsx from 'clsx';
-import Stack from 'components/stack/Stack';
-import Link from 'next/link';
-import React from 'react';
+import clsx from "clsx";
+import Stack from "components/stack/Stack";
+import Link from "next/link";
+import React from "react";
 
 type Props = {
   children?: React.ReactNode;
@@ -27,10 +27,10 @@ const ListItemText = ({
   return (
     <Stack className={clsx(className)}>
       {link ? (
-        <Link href={linkHref ?? '/'}>
+        <Link href={linkHref ?? "/"}>
           <div>
-            <span className={clsx('h4', titleClassName)}>{title}</span>
-            <p className={clsx('text-xs', descriptionClassName)}>
+            <span className={clsx("h4", titleClassName)}>{title}</span>
+            <p className={clsx("text-xs", descriptionClassName)}>
               {description}
             </p>
             {children}
@@ -38,8 +38,8 @@ const ListItemText = ({
         </Link>
       ) : (
         <>
-          <span className={clsx('h4', titleClassName)}>{title}</span>
-          <p className={clsx('text-xs', descriptionClassName)}>{description}</p>
+          <span className={clsx("h4", titleClassName)}>{title}</span>
+          <p className={clsx("text-xs", descriptionClassName)}>{description}</p>
           {children}
         </>
       )}

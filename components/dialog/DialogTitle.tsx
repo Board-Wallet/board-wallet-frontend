@@ -1,7 +1,7 @@
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Dialog } from '@headlessui/react';
-import clsx from 'clsx';
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Dialog } from "@headlessui/react";
+import clsx from "clsx";
 
 type Props = {
   onClose?: () => void;
@@ -18,7 +18,7 @@ const DialogTitle = ({ onClose, className, children }: Props) => {
             <FontAwesomeIcon
               icon={faXmark}
               size="2xl"
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => onClose()}
             />
           </div>
@@ -31,7 +31,7 @@ const DialogTitle = ({ onClose, className, children }: Props) => {
       );
     }
     return children ? (
-      <Dialog.Title as="h3" className={(clsx('h3 text-center'), className)}>
+      <Dialog.Title as="h3" className={(clsx("h3 text-center"), className)}>
         {children}
       </Dialog.Title>
     ) : (

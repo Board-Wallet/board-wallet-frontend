@@ -1,4 +1,4 @@
-import { Tab } from '@headlessui/react';
+import { Tab } from "@headlessui/react";
 
 type Props = {
   children: React.ReactNode | React.ReactNode[];

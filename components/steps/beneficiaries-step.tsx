@@ -1,4 +1,4 @@
-import { AddIcon, CloseIcon } from '@chakra-ui/icons';
+import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -7,10 +7,10 @@ import {
   FormErrorMessage,
   Input,
   Select,
-} from '@chakra-ui/react';
-import { isAddress } from 'ethers/lib/utils';
-import { BaseSyntheticEvent, useState } from 'react';
-import styles from 'styles/BeneficiariesStep.module.scss';
+} from "@chakra-ui/react";
+import { isAddress } from "ethers/lib/utils";
+import { BaseSyntheticEvent, useState } from "react";
+import styles from "styles/BeneficiariesStep.module.scss";
 
 interface Props {
   stepperClassName?: string;
@@ -34,8 +34,8 @@ const BeneficiariesStep = ({
   onPrevStep,
 }: Props) => {
   const defaultBeneficiary = {
-    name: '',
-    address: '',
+    name: "",
+    address: "",
     isClaimant: false,
     distribution: 0,
   };
@@ -110,7 +110,7 @@ const BeneficiariesStep = ({
           <Input
             height="50px"
             onChange={(event: BaseSyntheticEvent) => {
-              handleChange('name', event.target.value, index);
+              handleChange("name", event.target.value, index);
             }}
             placeholder="Beneficiary name"
             value={beneficiary.name}
@@ -122,7 +122,7 @@ const BeneficiariesStep = ({
           <Input
             height="50px"
             onChange={(event: BaseSyntheticEvent) =>
-              handleChange('address', event.target.value, index)
+              handleChange("address", event.target.value, index)
             }
             onBlur={() => handleAddressBlur(index)}
             placeholder="Beneficiary address *"
@@ -155,7 +155,7 @@ const BeneficiariesStep = ({
             marginLeft={10}
             height="50px"
             onChange={(event: BaseSyntheticEvent) =>
-              handleChange('distribution', event.target.value, index)
+              handleChange("distribution", event.target.value, index)
             }
             required
             value={beneficiary.distribution}
@@ -178,7 +178,7 @@ const BeneficiariesStep = ({
   }
 
   return (
-    <div className={`${stepperClassName || ''}`}>
+    <div className={`${stepperClassName || ""}`}>
       {renderStepper()}
       <Box className="py-6">
         <div>
@@ -195,7 +195,7 @@ const BeneficiariesStep = ({
         </div>
       </Box>
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
 
       <Box color="#64748B" display="flex" flexDirection="row" fontWeight="bold">
         <Box flex={5}>Name</Box>
@@ -207,7 +207,7 @@ const BeneficiariesStep = ({
         <Box flex={1}></Box>
       </Box>
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
 
       {beneficiaries.map(renderRow)}
 
@@ -258,7 +258,7 @@ const BeneficiariesStep = ({
         </Box>
       </Box>
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
 
       <Box display="flex" flexDirection="row" justifyContent="center">
         <Button

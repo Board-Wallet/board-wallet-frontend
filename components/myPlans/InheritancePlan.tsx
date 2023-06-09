@@ -1,22 +1,22 @@
-import { faCircleCheck, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
-import clsx from 'clsx';
-import Box from 'components/Box/Box';
-import Button from 'components/button/Button';
-import Chip from 'components/Chip/Chip';
-import CircleProgress from 'components/circleProgress/CircleProgress';
-import HorizontalRule from 'components/horizontal-rule/HorizontalRule';
-import Stack from 'components/stack/Stack';
-import useSucceed from 'hooks/useSucceed';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import networkMappings from 'utils/helpers/networkMappings';
-import wagmiChainNameMappings from 'utils/helpers/wagmiChainNameMappings';
-import { useNetwork } from 'wagmi';
-import { Address, Testament } from '../../utils/Types';
-import UILoading from '../UI/Loading';
+import { faCircleCheck, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import clsx from "clsx";
+import Box from "components/Box/Box";
+import Button from "components/button/Button";
+import Chip from "components/Chip/Chip";
+import CircleProgress from "components/circleProgress/CircleProgress";
+import HorizontalRule from "components/horizontal-rule/HorizontalRule";
+import Stack from "components/stack/Stack";
+import useSucceed from "hooks/useSucceed";
+import Image from "next/image";
+import Link from "next/link";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import networkMappings from "utils/helpers/networkMappings";
+import wagmiChainNameMappings from "utils/helpers/wagmiChainNameMappings";
+import { useNetwork } from "wagmi";
+import { Address, Testament } from "../../utils/Types";
+import UILoading from "../UI/Loading";
 
 type Props = {
   testament: Testament;
@@ -25,10 +25,10 @@ type Props = {
   fakeSignersAmount: number;
   updateDialogContent: (
     // eslint-disable-next-line no-unused-vars
-    caller: 'Complete Multisig' | 'Inheritance Complete'
+    caller: "Complete Multisig" | "Inheritance Complete"
   ) => void;
   setActiveClaim: Dispatch<
-    SetStateAction<'Inheritance Plan' | 'Backup Wallet' | undefined>
+    SetStateAction<"Inheritance Plan" | "Backup Wallet" | undefined>
   >;
   succeeded: boolean;
   setSucceeded: Dispatch<SetStateAction<boolean>>;
@@ -56,7 +56,7 @@ const InheritancePlan = ({
 
   useEffect(() => {
     if (succeedTransaction.isSuccess) {
-      updateDialogContent('Inheritance Complete');
+      updateDialogContent("Inheritance Complete");
       setSucceeded(true);
       succeed.reset();
     }
@@ -71,7 +71,7 @@ const InheritancePlan = ({
     const fetchTokens = async () => {
       try {
         const res = await axios.get(
-          '/api/dynamicvault?dynamicvaultowner=' + dynamicVaultOwner
+          "/api/dynamicvault?dynamicvaultowner=" + dynamicVaultOwner
         );
 
         setTokens(res.data.dynamicVault.testament.protectedTokens);
@@ -135,8 +135,8 @@ const InheritancePlan = ({
           <p>
             This Inheritance of Peace plan is the safe way to transfer the
             assets of a loved one who left you. If you are new to Web3, we
-            recommend these{' '}
-            <Link href={''}>
+            recommend these{" "}
+            <Link href={""}>
               <a className="text-purple-700">
                 guides and tutorials in our Help Center
               </a>
@@ -146,9 +146,9 @@ const InheritancePlan = ({
           <Stack
             direction="row"
             className={clsx(
-              'justify-between [&>div>span:first-of-type]:text-sm',
-              '[&>div>span:first-of-type]:text-blue-gray [&>div:first-of-type]:!gap-2',
-              '[&>div>span:nth-child(2)]:text-center'
+              "justify-between [&>div>span:first-of-type]:text-sm",
+              "[&>div>span:first-of-type]:text-blue-gray [&>div:first-of-type]:!gap-2",
+              "[&>div>span:nth-child(2)]:text-center"
             )}
           >
             <Stack>
@@ -163,7 +163,7 @@ const InheritancePlan = ({
                 <FontAwesomeIcon
                   icon={faCircleInfo}
                   onClick={() => {}}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
               <span>0x47E...0d926</span>
@@ -177,14 +177,14 @@ const InheritancePlan = ({
               <span>{tokens.length ?? 0}</span>
             </Stack>
             <Button
-              text={'View all'}
+              text={"View all"}
               variant="basic"
               className="rounded-md px-4 py-1.5 [&>span]:text-sm"
             />
           </Stack>
           <p>
             Unlock this inheritance plan and transfer the funds to the heirs
-            completing the multisig process with the {beneficiariesAmount}{' '}
+            completing the multisig process with the {beneficiariesAmount}{" "}
             Protectors.
           </p>
           <Stack direction="row" className="!items-start justify-between">
@@ -210,7 +210,7 @@ const InheritancePlan = ({
                 <span className="text-purple-900">
                   {fakeSignersAmount === 1
                     ? `${fakeSignersAmount} protector`
-                    : `${fakeSignersAmount} protectors`}{' '}
+                    : `${fakeSignersAmount} protectors`}{" "}
                   already sign!
                 </span>
                 <Stack direction="row" className="mt-4 flex-wrap">
@@ -223,13 +223,13 @@ const InheritancePlan = ({
                               fakeSignersAmount < beneficiariesAmount - i
                             }
                             className={clsx(
-                              'flex h-[75px] w-[75px] items-center justify-center !rounded-full drop-shadow-none',
-                              '[&>div]:rounded-full [&>div]:p-0'
+                              "flex h-[75px] w-[75px] items-center justify-center !rounded-full drop-shadow-none",
+                              "[&>div]:rounded-full [&>div]:p-0"
                             )}
                           >
                             <div
                               className={clsx(
-                                'flex h-[70px] w-[70px] items-center justify-center rounded-full bg-white'
+                                "flex h-[70px] w-[70px] items-center justify-center rounded-full bg-white"
                               )}
                             >
                               <div className="relative h-16 w-16 shrink-0 rounded-full">
@@ -249,7 +249,7 @@ const InheritancePlan = ({
                                 icon={faCircleCheck}
                                 size="xl"
                                 style={{
-                                  color: '#009900',
+                                  color: "#009900",
                                 }}
                               />
                             </span>
@@ -265,15 +265,15 @@ const InheritancePlan = ({
               <Chip variant="success" text="Approved" className="mt-12" />
             ) : (
               <Button
-                text={'Complete Multisig'}
-                variant={'basic'}
+                text={"Complete Multisig"}
+                variant={"basic"}
                 size="sm"
                 className="mt-12"
                 disabled={fakeSignersAmount === beneficiariesAmount}
                 onClick={() =>
                   fakeSignersAmount === beneficiariesAmount
                     ? null
-                    : updateDialogContent('Complete Multisig')
+                    : updateDialogContent("Complete Multisig")
                 }
               />
             )}

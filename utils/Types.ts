@@ -1,11 +1,11 @@
-import { BigNumber } from 'ethers';
-import { IBeneficiary } from 'mock';
+import { BigNumber } from "ethers";
+import { IBeneficiary } from "mock";
 
 export type UserPlans = (
-  | 'Inheritance Plan'
-  | 'Backup Wallet'
-  | 'Expender Wallet'
-  | 'Migration Plan'
+  | "Inheritance Plan"
+  | "Backup Wallet"
+  | "Expender Wallet"
+  | "Migration Plan"
 )[];
 
 export type Address = `0x${string}`;

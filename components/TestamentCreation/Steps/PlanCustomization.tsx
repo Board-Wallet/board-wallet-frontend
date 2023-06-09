@@ -1,20 +1,20 @@
-import { AddIcon } from '@chakra-ui/icons';
-import { Button as ChakraButton } from '@chakra-ui/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
-import Button from 'components/button/Button';
-import Caption from 'components/Caption/Caption';
-import HorizontalRule from 'components/horizontal-rule/HorizontalRule';
-import Section from 'components/Section/Section';
-import { isAddress } from 'ethers/lib/utils.js';
-import { IBeneficiary, ITestamentInfo } from 'mock';
-import { BaseSyntheticEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from 'store/hooks';
-import { dispatchTestamentCreationInfo } from 'store/reducers/testamentCreationInfo';
-import { DeepPartial } from 'utils/Types';
-import { useAccount } from 'wagmi';
-import { getTestamentCreationInfo } from '../../../store/reducers/testamentCreationInfo';
+import { AddIcon } from "@chakra-ui/icons";
+import { Button as ChakraButton } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import Button from "components/button/Button";
+import Caption from "components/Caption/Caption";
+import HorizontalRule from "components/horizontal-rule/HorizontalRule";
+import Section from "components/Section/Section";
+import { isAddress } from "ethers/lib/utils.js";
+import { IBeneficiary, ITestamentInfo } from "mock";
+import { BaseSyntheticEvent, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "store/hooks";
+import { dispatchTestamentCreationInfo } from "store/reducers/testamentCreationInfo";
+import { DeepPartial } from "utils/Types";
+import { useAccount } from "wagmi";
+import { getTestamentCreationInfo } from "../../../store/reducers/testamentCreationInfo";
 
 interface Props {
   stepperClassName?: string;
@@ -45,15 +45,15 @@ const PlanCustomization = ({
   const { address } = useAccount();
 
   const inputErrorMessages = {
-    invalidName: 'The name must be longer than 3 characters.',
-    repeatedName: 'The name cannot be repeated.',
+    invalidName: "The name must be longer than 3 characters.",
+    repeatedName: "The name cannot be repeated.",
     invalidAddressFormat:
-      'Invalid address. The address should start with 0x and be 42 characters long.',
+      "Invalid address. The address should start with 0x and be 42 characters long.",
     beneficiarySameAsTestator:
-      'The beneficiary cannot be the same as the testator.',
-    repeatedAddress: 'The address cannot be repeated.',
-    exceededDistributionRate: 'The distribution rate cannot exceed 100%.',
-    distributionRateZero: 'The distribution rate cannot be zero.',
+      "The beneficiary cannot be the same as the testator.",
+    repeatedAddress: "The address cannot be repeated.",
+    exceededDistributionRate: "The distribution rate cannot exceed 100%.",
+    distributionRateZero: "The distribution rate cannot be zero.",
   };
 
   const defaultError = {
@@ -110,7 +110,7 @@ const PlanCustomization = ({
 
   // This function does not check for the correct types of beneficiary.
   function handleChange(
-    key: 'name' | 'address' | 'distribution',
+    key: "name" | "address" | "distribution",
     value: string | number | undefined,
     index: number
   ) {
@@ -186,7 +186,7 @@ const PlanCustomization = ({
     index: number
   ) {
     let validAddress = true;
-    if (isAddress(beneficiary?.address || '')) {
+    if (isAddress(beneficiary?.address || "")) {
       if (beneficiary?.address === address) {
         setErrors((previousErrors) => [
           ...previousErrors.slice(0, index),
@@ -327,7 +327,7 @@ const PlanCustomization = ({
               placeholder="Beneficiary name"
               required
               onChange={(event: BaseSyntheticEvent) => {
-                handleChange('name', event.target.value, index);
+                handleChange("name", event.target.value, index);
               }}
               value={beneficiary?.name}
             />
@@ -340,7 +340,7 @@ const PlanCustomization = ({
               placeholder="0x..."
               required
               onChange={(event: BaseSyntheticEvent) => {
-                handleChange('address', event.target.value, index);
+                handleChange("address", event.target.value, index);
               }}
               value={beneficiary?.address}
             />
@@ -357,7 +357,7 @@ const PlanCustomization = ({
               required
               onChange={(event: BaseSyntheticEvent) =>
                 handleChange(
-                  'distribution',
+                  "distribution",
                   event.target.value ? +event.target.value : event.target.value,
                   index
                 )
@@ -367,14 +367,14 @@ const PlanCustomization = ({
           </section>
           <section
             className={clsx(
-              index === 0 && 'hidden sm:inline sm:text-transparent',
-              'mb-2 flex w-full flex-col items-center justify-center sm:w-2/12 lg:mb-0 lg:flex-row'
+              index === 0 && "hidden sm:inline sm:text-transparent",
+              "mb-2 flex w-full flex-col items-center justify-center sm:w-2/12 lg:mb-0 lg:flex-row"
             )}
           >
             <FontAwesomeIcon
               className={clsx(
-                index === 0 ? 'cursor-auto' : 'cursor-pointer',
-                'mx-auto sm:ml-auto'
+                index === 0 ? "cursor-auto" : "cursor-pointer",
+                "mx-auto sm:ml-auto"
               )}
               icon="trash"
               onClick={() => (index === 0 ? null : handleCloseIconClick(index))}
@@ -397,15 +397,15 @@ const PlanCustomization = ({
   }
 
   return (
-    <div className={`${stepperClassName || ''}`}>
+    <div className={`${stepperClassName || ""}`}>
       {renderStepper()}
       <div className="my-9 flex-col lg:flex">
         <Caption className="whitespace-pre-line text-left text-black">
           To create your will, please list the details of your beneficiaries.
           After the specified period of time, they will be able to claim what
           you left them.
-          {'\n'}
-          {'\n'}
+          {"\n"}
+          {"\n"}
           The will is only valid on the Mumbai network.
         </Caption>
       </div>
@@ -476,8 +476,8 @@ const PlanCustomization = ({
             Back
           </Button>
           <Button
-            variant={'primary'}
-            className={'!py-2 !px-3 mobile-lg:!px-10 lg:!py-4 lg:!px-14'}
+            variant={"primary"}
+            className={"!py-2 !px-3 mobile-lg:!px-10 lg:!py-4 lg:!px-14"}
             type="submit"
           >
             Continue

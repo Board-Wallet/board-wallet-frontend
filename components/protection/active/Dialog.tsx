@@ -3,49 +3,49 @@ import {
   faEdit,
   faGripLines,
   faTrashAlt,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
-import clsx from 'clsx';
-import Button from 'components/button/Button';
-import Chip from 'components/Chip/Chip';
-import Dialog from 'components/dialog/Dialog';
-import DialogTitle from 'components/dialog/DialogTitle';
-import HorizontalRule from 'components/horizontal-rule/HorizontalRule';
-import TextField from 'components/Input/TextField';
-import Listbox from 'components/listbox/Listbox';
-import ListboxOption from 'components/listbox/ListboxOption';
-import Stack from 'components/stack/Stack';
-import Loading from 'components/UI/Loading';
-import RadioGroup from 'components/UI/radio/RadioGroup';
-import RadioOption from 'components/UI/radio/RadioOption';
-import { BigNumber, ethers } from 'ethers';
-import useApproveToken from 'hooks/useApproveToken';
-import useCancelTestament from 'hooks/useCancelTestament';
-import Image from 'next/image';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import { formatAddress } from 'utils/formatters';
-import tokenMappings from 'utils/helpers/tokenMappings';
-import wagmiChainNameMappings from 'utils/helpers/wagmiChainNameMappings';
-import topTokens from 'utils/topTokens';
-import { useAccount, useNetwork } from 'wagmi';
-import useGetBalances from '../../../hooks/useGetBalances';
-import useRemoveBeneficiary from '../../../hooks/useRemoveBeneficiary';
-import useUpdateBeneficiaries from '../../../hooks/useUpdateBeneficiaries';
-import useUpdateInactivityMaximum from '../../../hooks/useUpdateInactivityMaximum';
-import formatBigNumber from '../../../utils/helpers/formatBigNumber';
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import clsx from "clsx";
+import Button from "components/button/Button";
+import Chip from "components/Chip/Chip";
+import Dialog from "components/dialog/Dialog";
+import DialogTitle from "components/dialog/DialogTitle";
+import HorizontalRule from "components/horizontal-rule/HorizontalRule";
+import TextField from "components/Input/TextField";
+import Listbox from "components/listbox/Listbox";
+import ListboxOption from "components/listbox/ListboxOption";
+import Stack from "components/stack/Stack";
+import Loading from "components/UI/Loading";
+import RadioGroup from "components/UI/radio/RadioGroup";
+import RadioOption from "components/UI/radio/RadioOption";
+import { BigNumber, ethers } from "ethers";
+import useApproveToken from "hooks/useApproveToken";
+import useCancelTestament from "hooks/useCancelTestament";
+import Image from "next/image";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { formatAddress } from "utils/formatters";
+import tokenMappings from "utils/helpers/tokenMappings";
+import wagmiChainNameMappings from "utils/helpers/wagmiChainNameMappings";
+import topTokens from "utils/topTokens";
+import { useAccount, useNetwork } from "wagmi";
+import useGetBalances from "../../../hooks/useGetBalances";
+import useRemoveBeneficiary from "../../../hooks/useRemoveBeneficiary";
+import useUpdateBeneficiaries from "../../../hooks/useUpdateBeneficiaries";
+import useUpdateInactivityMaximum from "../../../hooks/useUpdateInactivityMaximum";
+import formatBigNumber from "../../../utils/helpers/formatBigNumber";
 import {
   Address,
   Beneficiary,
   DynamicVault,
   Testament,
-} from '../../../utils/Types';
+} from "../../../utils/Types";
 
 type Props = {
   protectedTokens: Address[] | undefined;
   setProtectedTokens: Dispatch<SetStateAction<Address[] | undefined>>;
   dynamicVault: Partial<DynamicVault> | undefined;
-  dialogContent: 'edit assets' | 'edit heirs' | 'edit time' | undefined;
+  dialogContent: "edit assets" | "edit heirs" | "edit time" | undefined;
   isDialogOpen: boolean;
   setIsDialogOpen: Dispatch<SetStateAction<boolean>>;
   testament: Testament | undefined;
@@ -99,7 +99,7 @@ const ProtectionActiveDialog = ({
       if (approvalAddress) {
         setProtectedTokens((prev) => [...(prev ?? []), approvalAddress]);
         axios
-          .post('/api/testament/protected-tokens', {
+          .post("/api/testament/protected-tokens", {
             dynamicVaultOwner: address,
             newProtectedTokens: [approvalAddress],
           })
@@ -110,7 +110,7 @@ const ProtectionActiveDialog = ({
       }
     }
 
-    if (['error', 'success'].includes(approveTokenTransaction.status)) {
+    if (["error", "success"].includes(approveTokenTransaction.status)) {
       approveToken.reset();
       setApprovalAddress(undefined);
     }
@@ -195,7 +195,7 @@ const ProtectionActiveDialog = ({
       editedBeneficiaries[3].map((beneficiaryIndex, index) => {
         if (beneficiaries[parseInt(beneficiaryIndex.toString())].new) {
           try {
-            axios.post('/api/beneficiary', {
+            axios.post("/api/beneficiary", {
               dynamicVaultOwner: address,
               beneficiaryAddress: editedBeneficiaries[1][index],
             });
@@ -268,7 +268,7 @@ const ProtectionActiveDialog = ({
   const network =
     wagmiChainNameMappings[
       chain?.name as keyof typeof wagmiChainNameMappings
-    ] ?? 'moonbeam';
+    ] ?? "moonbeam";
 
   useEffect(() => {
     if (
@@ -323,6 +323,7 @@ const ProtectionActiveDialog = ({
 
   useEffect(() => {
     if (dynamicVault?.testament && !beneficiaries.length) {
+      //@ts-ignore
       setBeneficiaries(dynamicVault.testament.beneficiaries as Beneficiary[]);
       setEdit({
         status: beneficiaries.map(() => false),
@@ -330,7 +331,7 @@ const ProtectionActiveDialog = ({
     }
   }, [beneficiaries, dynamicVault]);
 
-  const displayPriceTokens = [{ value: 'USD' }];
+  const displayPriceTokens = [{ value: "USD" }];
 
   // hard-coded for now
   const prices: { [key: string]: number } = {
@@ -344,8 +345,8 @@ const ProtectionActiveDialog = ({
     setBeneficiaries([
       ...beneficiaries,
       {
-        name: 'Name',
-        address_: '0x',
+        name: "Name",
+        address_: "0x",
         inheritancePercentage: BigNumber.from(0),
         new: true,
       },
@@ -371,7 +372,7 @@ const ProtectionActiveDialog = ({
 
     processedNames = (
       names
-        ? names.value !== ''
+        ? names.value !== ""
           ? [names.value]
           : Object.values(names).map((name, index) => {
               if (name !== beneficiaries[index]?.name) {
@@ -383,7 +384,7 @@ const ProtectionActiveDialog = ({
 
     processedAddresses = (
       addresses
-        ? addresses.value !== ''
+        ? addresses.value !== ""
           ? [addresses.value]
           : Object.values(addresses).map((address, index) => {
               if (address !== beneficiaries[index]?.address_) {
@@ -395,7 +396,7 @@ const ProtectionActiveDialog = ({
 
     processedInheritancePercentages = (
       inheritancePercentages
-        ? inheritancePercentages.value !== ''
+        ? inheritancePercentages.value !== ""
           ? [inheritancePercentages.value]
           : Object.values(inheritancePercentages).map(
               (inheritancePercentage, index) => {
@@ -463,7 +464,7 @@ const ProtectionActiveDialog = ({
     if (dialogContent === undefined || dynamicVault === undefined) {
       return <DialogTitle>Loading...</DialogTitle>;
     }
-    if (dialogContent === 'edit assets') {
+    if (dialogContent === "edit assets") {
       return (
         <>
           <DialogTitle onClose={() => setIsDialogOpen(false)}></DialogTitle>
@@ -490,7 +491,7 @@ const ProtectionActiveDialog = ({
           <div className="mt-8 grid items-center !gap-5 text-sm text-blue-gray [grid-template-columns:repeat(14,minmax(0,1fr))]">
             <FontAwesomeIcon
               icon={faGripLines}
-              style={{ gridColumn: 'span 1 / span 1', margin: 'auto' }}
+              style={{ gridColumn: "span 1 / span 1", margin: "auto" }}
             />
             <span className="col-span-3">Asset</span>
             <span className="col-span-3">Balance</span>
@@ -498,7 +499,7 @@ const ProtectionActiveDialog = ({
               <span>Protected</span>
               <FontAwesomeIcon
                 icon={faCircleInfo}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               />
             </div>
             <Button
@@ -526,7 +527,7 @@ const ProtectionActiveDialog = ({
                 >
                   <div className="relative col-span-1 h-6 w-6 shrink-0">
                     <Image
-                      src={tokenMapping ? tokenMapping.route : '/'}
+                      src={tokenMapping ? tokenMapping.route : "/"}
                       alt={token}
                       layout="fill"
                       objectFit="contain"
@@ -540,21 +541,21 @@ const ProtectionActiveDialog = ({
                     <span>
                       {(tokenBalances.data &&
                         formatBigNumber(tokenBalances.data[index])) ??
-                        'loading...'}
+                        "loading..."}
                     </span>
                     <span className="subtitle block">
                       $
                       {(tokenBalances.data &&
                         +formatBigNumber(tokenBalances.data[index]) *
                           prices[token]) ??
-                        '0.00'}
+                        "0.00"}
                     </span>
                   </div>
                   <div className="col-span-3 text-sm">
                     <span>
                       {(tokenBalances.data &&
                         formatBigNumber(tokenBalances.data[index])) ??
-                        'loading...'}
+                        "loading..."}
                     </span>
 
                     <span className="subtitle block">
@@ -562,12 +563,12 @@ const ProtectionActiveDialog = ({
                       {(tokenBalances.data &&
                         +formatBigNumber(tokenBalances.data[index]) *
                           prices[token]) ??
-                        '0.00'}
+                        "0.00"}
                     </span>
                   </div>
                   {protectedTokens?.some((token) => token === address) ? (
                     <Chip
-                      text={'Protected'}
+                      text={"Protected"}
                       className="col-span-4 h-12 py-0 "
                     />
                   ) : (
@@ -590,7 +591,7 @@ const ProtectionActiveDialog = ({
         </>
       );
     }
-    if (dialogContent === 'edit heirs') {
+    if (dialogContent === "edit heirs") {
       return (
         <>
           <DialogTitle onClose={() => setIsDialogOpen(false)}></DialogTitle>
@@ -608,7 +609,7 @@ const ProtectionActiveDialog = ({
           <div className="mt-8 grid items-center !gap-5 text-sm text-blue-gray [grid-template-columns:repeat(14,minmax(0,1fr))]">
             <FontAwesomeIcon
               icon={faGripLines}
-              style={{ gridColumn: 'span 1 / span 1', margin: 'auto' }}
+              style={{ gridColumn: "span 1 / span 1", margin: "auto" }}
             />
             <span className="col-span-3">Name</span>
             <span className="col-span-3">Address</span>
@@ -616,7 +617,7 @@ const ProtectionActiveDialog = ({
               <span>% Funds</span>
               <FontAwesomeIcon
                 icon={faCircleInfo}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               />
             </div>
           </div>
@@ -644,14 +645,14 @@ const ProtectionActiveDialog = ({
                     <div className="relative col-span-3 text-sm  ">
                       {edit.status[index] ? (
                         <TextField
-                          placeHolder={'Name'}
+                          placeHolder={"Name"}
                           className="[&>input]:py-1 [&>input]:px-2"
                           name="names"
                           defaultValue={beneficiary.name && beneficiary.name}
                         />
                       ) : (
                         <span className="block capitalize">
-                          {beneficiary.name === '' ? 'Name' : beneficiary.name}
+                          {beneficiary.name === "" ? "Name" : beneficiary.name}
                         </span>
                       )}
                       <span className="subtitle">Beneficiary</span>
@@ -660,7 +661,7 @@ const ProtectionActiveDialog = ({
                     <div className="col-span-3 text-sm">
                       {edit.status[index] ? (
                         <TextField
-                          placeHolder={'Address'}
+                          placeHolder={"Address"}
                           className="[&>input]:py-1 [&>input]:px-2"
                           name="addresses"
                           defaultValue={
@@ -683,7 +684,7 @@ const ProtectionActiveDialog = ({
                     <div className="col-span-3 text-sm">
                       {edit.status[index] ? (
                         <TextField
-                          placeHolder={'Percentage'}
+                          placeHolder={"Percentage"}
                           className="[&>input]:py-1 [&>input]:px-2"
                           type="number"
                           name="inheritancePercentages"
@@ -697,8 +698,8 @@ const ProtectionActiveDialog = ({
                           <>
                             {parseInt(
                               beneficiary?.inheritancePercentage?.toString() ??
-                                '0'
-                            )}{' '}
+                                "0"
+                            )}{" "}
                             %
                           </>
                         </span>
@@ -709,10 +710,10 @@ const ProtectionActiveDialog = ({
                     <FontAwesomeIcon
                       icon={faEdit}
                       className={clsx(
-                        'col-span-2 cursor-pointer',
+                        "col-span-2 cursor-pointer",
                         (updateBeneficiariesTransaction.isLoading ||
                           updateBeneficiaries.isLoading) &&
-                          'cursor-not-allowed text-gray-400'
+                          "cursor-not-allowed text-gray-400"
                       )}
                       onClick={() =>
                         updateBeneficiariesTransaction.isLoading ||
@@ -736,10 +737,10 @@ const ProtectionActiveDialog = ({
                       <FontAwesomeIcon
                         icon={faTrashAlt}
                         className={clsx(
-                          'col-span-2 cursor-pointer text-red-600',
+                          "col-span-2 cursor-pointer text-red-600",
                           (updateBeneficiariesTransaction.isLoading ||
                             updateBeneficiaries.isLoading) &&
-                            'cursor-not-allowed !text-gray-400'
+                            "cursor-not-allowed !text-gray-400"
                         )}
                         onClick={() =>
                           updateBeneficiariesTransaction.isLoading ||
@@ -811,7 +812,7 @@ const ProtectionActiveDialog = ({
         </>
       );
     }
-    if (dialogContent === 'edit time') {
+    if (dialogContent === "edit time") {
       return (
         <form onSubmit={(e) => handleInactivityTimeSubmit(e)}>
           <DialogTitle onClose={() => setIsDialogOpen(false)}></DialogTitle>

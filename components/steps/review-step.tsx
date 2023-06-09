@@ -1,5 +1,5 @@
-import { Box, Button } from '@chakra-ui/react';
-import styles from 'styles/BeneficiariesStep.module.scss';
+import { Box, Button } from "@chakra-ui/react";
+import styles from "styles/BeneficiariesStep.module.scss";
 
 interface Props {
   stepperClassName?: string;
@@ -24,7 +24,7 @@ const ReviewStep = ({
         marginBottom="15px"
         key={`beneficiary-${index}`}
       >
-        <Box flex={1}>{beneficiary.isClaimant ? 'Yes' : 'No'}</Box>
+        <Box flex={1}>{beneficiary.isClaimant ? "Yes" : "No"}</Box>
         <Box flex={3}>{beneficiary.name}</Box>
         <Box flex={1}>{beneficiary.distribution} %</Box>
         <Box flex={3}>{beneficiary.address}</Box>
@@ -33,7 +33,7 @@ const ReviewStep = ({
   }
 
   return (
-    <div className={`${stepperClassName || ''}`}>
+    <div className={`${stepperClassName || ""}`}>
       {renderStepper()}
       <Box className="py-6">
         <div>
@@ -47,7 +47,7 @@ const ReviewStep = ({
         </div>
       </Box>
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
       <Box color="#000000" marginBottom={5}>
         Details
       </Box>
@@ -81,7 +81,7 @@ const ReviewStep = ({
         </Box>
       </Box>
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
 
       <Box marginBottom={5}>
         {beneficiaries.beneficiaries.length} Beneficiaries
@@ -94,11 +94,11 @@ const ReviewStep = ({
         <Box flex={3}>Wallet</Box>
       </Box>
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
 
       {beneficiaries.beneficiaries.map(renderRow)}
 
-      <div className={styles['beneficiariesstep__divider']}></div>
+      <div className={styles["beneficiariesstep__divider"]}></div>
 
       <Box display="flex" flexDirection="row" justifyContent="center">
         <Button

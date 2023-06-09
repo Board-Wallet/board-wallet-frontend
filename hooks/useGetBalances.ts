@@ -1,4 +1,4 @@
-import { Address, erc20ABI, useContractReads } from 'wagmi';
+import { Address, erc20ABI, useContractReads } from "wagmi";
 
 type Props = [ownerAddress: Address, tokenAddresses: Address[]];
 
@@ -6,7 +6,7 @@ const useGetBalances = (...[ownerAddress, tokenAddresses]: Partial<Props>) => {
   let config: {
     address: Address;
     abi: typeof erc20ABI;
-    functionName: 'balanceOf';
+    functionName: "balanceOf";
     args: [Address];
   }[] = [];
 
@@ -15,7 +15,7 @@ const useGetBalances = (...[ownerAddress, tokenAddresses]: Partial<Props>) => {
       config.push({
         address: address,
         abi: erc20ABI,
-        functionName: 'balanceOf',
+        functionName: "balanceOf",
         args: [ownerAddress as Address],
       })
     );

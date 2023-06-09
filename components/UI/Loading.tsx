@@ -4,14 +4,14 @@ type Props = {
   height?: number | string;
 };
 
-const UILoading = ({ fill = '#5f4dff', width = 202, height = 202 }: Props) => (
+const UILoading = ({ fill = "#5f4dff", width = 202, height = 202 }: Props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{
-      margin: 'auto',
-      background: '0 0',
-      display: 'block',
-      shapeRendering: 'auto',
+      margin: "auto",
+      background: "0 0",
+      display: "block",
+      shapeRendering: "auto",
     }}
     width={width}
     height={height}

@@ -1,10 +1,10 @@
-import { BigNumber } from 'ethers';
+import { BigNumber } from "ethers";
 import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
-} from 'wagmi';
-import useGetDynamicVaults from './utils/useGetDynamicVaults';
+} from "wagmi";
+import useGetDynamicVaults from "./utils/useGetDynamicVaults";
 
 const useUpdateInactivityMaximum = (
   newInactivityTime: BigNumber | undefined
@@ -12,9 +12,9 @@ const useUpdateInactivityMaximum = (
   const dynamicVaults = useGetDynamicVaults();
 
   const prepareTransact = usePrepareContractWrite({
-    address: dynamicVaults?.address ?? '',
+    address: dynamicVaults?.address ?? "",
     abi: dynamicVaults?.abi,
-    functionName: 'updateInactivityMaximum',
+    functionName: "updateInactivityMaximum",
     args: [newInactivityTime as BigNumber],
     enabled: !!newInactivityTime,
   });

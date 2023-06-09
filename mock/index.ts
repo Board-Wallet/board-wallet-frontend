@@ -1,4 +1,4 @@
-import { Address } from 'utils/Types';
+import { Address } from "utils/Types";
 
 export interface IBeneficiary {
   name: string;
@@ -20,8 +20,8 @@ export const testamentInfoInitialValue: ITestamentInfo = {
   activeStep: 0,
   beneficiaries: [
     {
-      name: '',
-      address: '0x',
+      name: "",
+      address: "0x",
       isClaimant: false,
       distribution: 0,
     },

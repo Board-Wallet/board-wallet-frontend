@@ -1,9 +1,9 @@
-const baseRoute = '/logos/symbols';
+const baseRoute = "/logos/symbols";
 
 const networks = {
   mumbai: {
-    route: baseRoute + '/matic.png',
-    token: 'fakeMatic',
+    route: baseRoute + "/matic.png",
+    token: "fakeMatic",
   },
 };
 

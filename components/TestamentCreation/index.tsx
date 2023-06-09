@@ -1,4 +1,4 @@
-import Steps from 'components/TestamentCreation/Steps';
+import Steps from "components/TestamentCreation/Steps";
 
 const TestamentCreation = () => {
   return <Steps />;

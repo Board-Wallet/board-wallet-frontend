@@ -36,16 +36,7 @@ import Section from "components/Section/Section";
 import Image from "next/image";
 
 const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
+  <Link px={2} py={1} rounded={"md"} href={"#"}>
     {children}
   </Link>
 );
@@ -78,10 +69,6 @@ const Navbar: FC = () => {
                 ([, { title, icon, route, alt }], key) => {
                   return (
                     <ListItem
-                      _hover={{
-                        textDecoration: "none",
-                        backgroundColor: "pink",
-                      }}
                       key={key}
                       // style={{ backgroundColor: "pink" }}
                     >
@@ -92,12 +79,7 @@ const Navbar: FC = () => {
                           <Image src={icon} alt={alt} width={20} height={20} />
                         </ListItemIcon> */}
                         {/* <span>{title}</span> */}
-                        <NavLink
-                          style={{ backgroundColor: "pink" }}
-                          key={title}
-                        >
-                          {title}
-                        </NavLink>
+                        <NavLink key={title}>{title}</NavLink>
                       </Section>
                     </ListItem>
                   );
@@ -133,7 +115,7 @@ const Navbar: FC = () => {
           </Flex>
         </Flex>
 
-        {isOpen ? (
+        {/* {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
@@ -141,7 +123,7 @@ const Navbar: FC = () => {
               ))}
             </Stack>
           </Box>
-        ) : null}
+        ) : null} */}
       </Box>
     );
   };

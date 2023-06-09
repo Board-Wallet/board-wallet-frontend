@@ -1,5 +1,5 @@
 const windowExists = () => {
-  return typeof window !== 'undefined';
+  return typeof window !== "undefined";
 };
 
 export default windowExists;

@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import Section from 'components/Section/Section';
-import React from 'react';
+import clsx from "clsx";
+import Section from "components/Section/Section";
+import React from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ type Props = {
 
 const Container = ({ className, children }: Props) => {
   return (
-    <Section className={clsx(className, 'w-full justify-center')}>
+    <Section className={clsx(className, "w-full justify-center")}>
       {children}
     </Section>
   );

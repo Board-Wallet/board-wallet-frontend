@@ -1,8 +1,8 @@
-import dbConnect from 'lib/mongodb';
-import ModelBeneficiary from 'mongoDB/models/beneficiary';
-import ModelDynamicVault from 'mongoDB/models/dynamicVault';
-import ModelTestament from 'mongoDB/models/testament';
-import { NextApiRequest, NextApiResponse } from 'next';
+import dbConnect from "lib/mongodb";
+import ModelBeneficiary from "mongoDB/models/beneficiary";
+import ModelDynamicVault from "mongoDB/models/dynamicVault";
+import ModelTestament from "mongoDB/models/testament";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,20 +15,20 @@ export default async function handler(
   }
 
   // Adds a beneficiary to the beneficiary and testament collection
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     const { beneficiaryAddress, dynamicVaultOwner } = req.body;
 
     if (!beneficiaryAddress) {
-      return res.status(400).json({ message: 'No address' });
+      return res.status(400).json({ message: "No address" });
     }
 
     if (!dynamicVaultOwner) {
-      return res.status(400).json({ message: 'No dynamicVaultOwner' });
+      return res.status(400).json({ message: "No dynamicVaultOwner" });
     }
 
     const dynamicVault = await ModelDynamicVault.findOne({
       dynamicVaultOwner: dynamicVaultOwner,
-    }).populate('testament');
+    }).populate("testament");
 
     if (dynamicVault) {
       let beneficiary = await ModelBeneficiary.findOne({
@@ -62,7 +62,7 @@ export default async function handler(
 
         const newSignatures = signatures.concat({
           address: beneficiaryAddress,
-          signature: '',
+          signature: "",
         });
 
         try {
@@ -77,7 +77,7 @@ export default async function handler(
         }
       }
     } else {
-      return res.status(400).json({ message: 'No dynamicVault found' });
+      return res.status(400).json({ message: "No dynamicVault found" });
     }
 
     // if beneficiary update else create beneficiary

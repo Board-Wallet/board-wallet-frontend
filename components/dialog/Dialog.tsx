@@ -1,11 +1,11 @@
-import { Dialog as HeadlessDialog, Transition } from '@headlessui/react';
-import clsx from 'clsx';
-import { Fragment } from 'react';
+import { Dialog as HeadlessDialog, Transition } from "@headlessui/react";
+import clsx from "clsx";
+import { Fragment } from "react";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   children: React.ReactNode | React.ReactNode[];
 };
@@ -13,7 +13,7 @@ type Props = {
 const Dialog = ({
   isOpen,
   onClose,
-  size = 'md',
+  size = "md",
   className,
   children,
 }: Props) => {
@@ -21,7 +21,7 @@ const Dialog = ({
     <Transition appear show={isOpen} as={Fragment}>
       <HeadlessDialog
         as="div"
-        className={clsx('relative z-10', className)}
+        className={clsx("relative z-10", className)}
         onClose={onClose}
       >
         <Transition.Child
@@ -49,12 +49,12 @@ const Dialog = ({
             >
               <HeadlessDialog.Panel
                 className={clsx(
-                  size === 'sm' && 'max-w-md',
-                  size === 'md' && 'max-w-xl',
-                  size === 'lg' && 'max-w-2xl',
-                  size === 'xl' && 'max-w-4xl',
-                  'w-full  overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl',
-                  'transition-all'
+                  size === "sm" && "max-w-md",
+                  size === "md" && "max-w-xl",
+                  size === "lg" && "max-w-2xl",
+                  size === "xl" && "max-w-4xl",
+                  "w-full  overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl",
+                  "transition-all"
                 )}
               >
                 {children}

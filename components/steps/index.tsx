@@ -1,12 +1,12 @@
 // @ts-nocheck
 
-import { writeTestament } from 'utils/web3/heritage';
-import { useState } from 'react';
-import BeneficiariesStep from 'components/steps/beneficiaries-step';
-import classNames from 'classnames';
-import ConnectStep from 'components/steps/connect-step';
-import ReviewStep from 'components/steps/review-step';
-import styles from 'styles/Steps.module.scss';
+import { writeTestament } from "utils/web3/heritage";
+import { useState } from "react";
+import BeneficiariesStep from "components/steps/beneficiaries-step";
+import classNames from "classnames";
+import ConnectStep from "components/steps/connect-step";
+import ReviewStep from "components/steps/review-step";
+import styles from "styles/Steps.module.scss";
 
 const CreatePlan = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -14,8 +14,8 @@ const CreatePlan = () => {
   const steps = [
     {
       content: <ConnectStep onNextStep={() => setActiveStep(1)} />,
-      key: 'step-connect',
-      title: 'Connect wallet & select network',
+      key: "step-connect",
+      title: "Connect wallet & select network",
     },
     {
       content: (
@@ -30,8 +30,8 @@ const CreatePlan = () => {
           }}
         />
       ),
-      key: 'step-beneficiaries',
-      title: 'Select beneficiaries & proof of life',
+      key: "step-beneficiaries",
+      title: "Select beneficiaries & proof of life",
     },
     {
       content: (
@@ -41,8 +41,8 @@ const CreatePlan = () => {
           onNextStep={() => handleDeploy()}
         />
       ),
-      key: 'step-distribution',
-      title: 'Review your testament',
+      key: "step-distribution",
+      title: "Review your testament",
     },
   ];
 
@@ -57,25 +57,25 @@ const CreatePlan = () => {
     index: number
   ) {
     return (
-      <div className={classNames(styles['steps__step'])} key={key}>
-        <div className={styles['steps__step__stepper']}>
-          <div className={styles['steps__step__stepper__header']}>
-            <div className={styles['steps__step__stepper__circle']}>
+      <div className={classNames(styles["steps__step"])} key={key}>
+        <div className={styles["steps__step__stepper"]}>
+          <div className={styles["steps__step__stepper__header"]}>
+            <div className={styles["steps__step__stepper__circle"]}>
               {index + 1}
             </div>
-            <div className={styles['steps__step__stepper__title']}>{title}</div>
+            <div className={styles["steps__step__stepper__title"]}>{title}</div>
           </div>
-          <div className={styles['steps__step__stepper__line']}></div>
+          <div className={styles["steps__step__stepper__line"]}></div>
         </div>
 
-        <div className={styles['steps__step__content']}>
+        <div className={styles["steps__step__content"]}>
           {index === activeStep ? content : null}
         </div>
       </div>
     );
   }
 
-  return <div className={styles['steps']}>{steps.map(renderStep)}</div>;
+  return <div className={styles["steps"]}>{steps.map(renderStep)}</div>;
 };
 
 export default CreatePlan;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
   className?: string;
@@ -7,11 +7,11 @@ type Props = {
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   >;
-} & React.ComponentPropsWithoutRef<'div'>;
+} & React.ComponentPropsWithoutRef<"div">;
 
 const Section = ({ className, children, onClick, props }: Props) => {
   return (
-    <div onClick={onClick} {...props} className={`flex  ${className || ''}`}>
+    <div onClick={onClick} {...props} className={`flex  ${className || ""}`}>
       {children}
     </div>
   );

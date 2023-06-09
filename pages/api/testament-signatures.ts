@@ -1,9 +1,9 @@
-import dbConnect from 'lib/mongodb';
-import ModelBeneficiary from 'mongoDB/models/beneficiary';
-import ModelDynamicVault from 'mongoDB/models/dynamicVault';
-import ModelTestament from 'mongoDB/models/testament';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { Address } from 'wagmi';
+import dbConnect from "lib/mongodb";
+import ModelBeneficiary from "mongoDB/models/beneficiary";
+import ModelDynamicVault from "mongoDB/models/dynamicVault";
+import ModelTestament from "mongoDB/models/testament";
+import { NextApiRequest, NextApiResponse } from "next";
+import { Address } from "wagmi";
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,12 +15,12 @@ export default async function handler(
     return res.status(500).json({ error });
   }
 
-  if (req.method === 'GET') {
+  if (req.method === "GET") {
     const { dynamicvaultowner: dynamicVaultOwner } = req.query;
     try {
       const testamentSignatures = await ModelDynamicVault.findOne({
         dynamicVaultOwner: dynamicVaultOwner,
-      }).populate('testament');
+      }).populate("testament");
 
       return res.status(200).json({ testamentSignatures });
     } catch (error) {
@@ -28,7 +28,7 @@ export default async function handler(
     }
   }
 
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     type Props = {
       dynamicVaultOwner: Address;
       beneficiaries: { address: Address; signature: string }[];
@@ -36,7 +36,7 @@ export default async function handler(
     const { dynamicVaultOwner, beneficiaries }: Props = req.body;
 
     if (!beneficiaries) {
-      return res.status(400).json({ message: 'No beneficiaries' });
+      return res.status(400).json({ message: "No beneficiaries" });
     }
 
     const testament = await new ModelTestament({
@@ -106,7 +106,7 @@ export default async function handler(
     return res.status(200).json({ success: true });
   }
 
-  if (req.method === 'DELETE') {
+  if (req.method === "DELETE") {
     const { dynamicvaultowner: dynamicVaultOwner, beneficiary } = req.query;
 
     try {
@@ -135,7 +135,7 @@ export default async function handler(
     }
   }
 
-  if (req.method === 'PUT') {
+  if (req.method === "PUT") {
     type Props = {
       testamentId: string;
       beneficiaryAddress: Address;
@@ -147,11 +147,11 @@ export default async function handler(
       await ModelTestament.findOneAndUpdate(
         {
           _id: testamentId,
-          'signatures.address': beneficiaryAddress,
+          "signatures.address": beneficiaryAddress,
         },
         {
           $set: {
-            'signatures.$.signature': signature,
+            "signatures.$.signature": signature,
           },
         },
         { upsert: true }

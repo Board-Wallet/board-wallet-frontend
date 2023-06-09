@@ -2,16 +2,16 @@ import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
-} from 'wagmi';
-import useGetDynamicVaults from './utils/useGetDynamicVaults';
+} from "wagmi";
+import useGetDynamicVaults from "./utils/useGetDynamicVaults";
 
 const useSignalLife = () => {
   const dynamicVaults = useGetDynamicVaults();
 
   const prepareTransact = usePrepareContractWrite({
-    address: dynamicVaults?.address ?? '',
+    address: dynamicVaults?.address ?? "",
     abi: dynamicVaults?.abi,
-    functionName: 'signalLife',
+    functionName: "signalLife",
   });
 
   const transact = useContractWrite(prepareTransact.config);

@@ -1,13 +1,13 @@
-import { Stack } from '@chakra-ui/react';
-import Button from 'components/button/Button';
-import Caption from 'components/Caption/Caption';
-import HorizontalRule from 'components/horizontal-rule/HorizontalRule';
-import Section from 'components/Section/Section';
-import { IBeneficiary } from 'mock';
-import { useAppSelector } from 'store/hooks';
-import { getTestamentCreationInfo } from 'store/reducers/testamentCreationInfo';
-import { formatAddress } from 'utils/formatters';
-import { DeepPartial } from 'utils/Types';
+import { Stack } from "@chakra-ui/react";
+import Button from "components/button/Button";
+import Caption from "components/Caption/Caption";
+import HorizontalRule from "components/horizontal-rule/HorizontalRule";
+import Section from "components/Section/Section";
+import { IBeneficiary } from "mock";
+import { useAppSelector } from "store/hooks";
+import { getTestamentCreationInfo } from "store/reducers/testamentCreationInfo";
+import { formatAddress } from "utils/formatters";
+import { DeepPartial } from "utils/Types";
 
 interface Props {
   stepperClassName?: string;
@@ -60,7 +60,7 @@ const PlanReview = ({
   }
 
   return (
-    <div className={`${stepperClassName || ''}`}>
+    <div className={`${stepperClassName || ""}`}>
       {renderStepper()}
 
       <div className="flex flex-col py-2">
@@ -86,7 +86,7 @@ const PlanReview = ({
         <Section className="!gap-10">
           <span className="w-full">{expirationDays} days of inactivity</span>
           <span className="w-full">
-            {testamentCreationInfo.signaturesRequired} out of{' '}
+            {testamentCreationInfo.signaturesRequired} out of{" "}
             {beneficiaries.length} beneficiaries
             {testamentCreationInfo.signaturesRequired === 0 &&
               ". It's automatic."}
@@ -109,7 +109,7 @@ const PlanReview = ({
               Signatures required for succession:
             </span>
             <span className="block">
-              {testamentCreationInfo.signaturesRequired} out of{' '}
+              {testamentCreationInfo.signaturesRequired} out of{" "}
               {beneficiaries.length} beneficiaries
               {testamentCreationInfo.signaturesRequired === 0 &&
                 ". It's automatic."}

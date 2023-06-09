@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IBeneficiary } from 'mock';
-import { DeepPartial } from 'utils/Types';
-import { RootState } from '../index';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IBeneficiary } from "mock";
+import { DeepPartial } from "utils/Types";
+import { RootState } from "../index";
 
 interface TestamentCreationInfo {
   selectedPlan: number;
@@ -27,7 +27,7 @@ const initialState: TestamentCreationInfo = {
 };
 
 export const testamentCreationInfoSlice = createSlice({
-  name: 'testamentCreationInfo',
+  name: "testamentCreationInfo",
   initialState,
   reducers: {
     dispatchTestamentCreationInfo: (

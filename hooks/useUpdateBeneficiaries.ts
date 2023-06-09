@@ -1,11 +1,11 @@
-import { BigNumber } from 'ethers';
+import { BigNumber } from "ethers";
 import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
-} from 'wagmi';
-import { Address } from '../utils/Types';
-import useGetDynamicVaults from './utils/useGetDynamicVaults';
+} from "wagmi";
+import { Address } from "../utils/Types";
+import useGetDynamicVaults from "./utils/useGetDynamicVaults";
 
 type Props = readonly [
   names: readonly string[],
@@ -20,9 +20,9 @@ const useUpdateBeneficiaries = (
   const dynamicVaults = useGetDynamicVaults();
 
   const prepareTransact = usePrepareContractWrite({
-    address: dynamicVaults?.address ?? '',
+    address: dynamicVaults?.address ?? "",
     abi: dynamicVaults?.abi,
-    functionName: 'updateBeneficiaries',
+    functionName: "updateBeneficiaries",
     args: [names, addresses, inheritancePercentages, indexes] as Props,
     enabled:
       names.length &&

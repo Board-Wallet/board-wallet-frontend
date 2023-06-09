@@ -1,5 +1,5 @@
-import { Address, useContractRead } from 'wagmi';
-import useGetDynamicVaults from './utils/useGetDynamicVaults';
+import { Address, useContractRead } from "wagmi";
+import useGetDynamicVaults from "./utils/useGetDynamicVaults";
 
 function useGetDynamicVault(owner: Address | undefined) {
   const dynamicVaults = useGetDynamicVaults();
@@ -7,7 +7,7 @@ function useGetDynamicVault(owner: Address | undefined) {
   const dynamicVault = useContractRead({
     address: dynamicVaults?.address,
     abi: dynamicVaults?.abi,
-    functionName: 'dynamicVaults',
+    functionName: "dynamicVaults",
     args: [owner as Address],
     enabled: !!owner,
   });

@@ -1,6 +1,6 @@
-import { Tab } from '@headlessui/react';
-import clsx from 'clsx';
-import React from 'react';
+import { Tab } from "@headlessui/react";
+import clsx from "clsx";
+import React from "react";
 
 type Props = {
   className?: string;
@@ -9,7 +9,7 @@ type Props = {
 
 const Tabs = ({ className, children }: Props) => {
   return (
-    <Tab.List className={clsx('flex gap-8 capitalize', className)}>
+    <Tab.List className={clsx("flex gap-8 capitalize", className)}>
       {children}
     </Tab.List>
   );

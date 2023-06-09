@@ -1,4 +1,4 @@
-const chains: Chain[] = require('utils/chains/chains.json');
+const chains: Chain[] = require("utils/chains/chains.json");
 
 interface NativeCurrency {
   name: string;

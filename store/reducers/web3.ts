@@ -1,10 +1,10 @@
-import { BigNumber } from 'ethers';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fromWei } from 'utils/converter';
-import { getChainById } from 'utils/chains/index';
-import { RootState } from 'store';
+import { BigNumber } from "ethers";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { fromWei } from "utils/converter";
+import { getChainById } from "utils/chains/index";
+import { RootState } from "store";
 
-import type { Chain } from 'utils/chains/index';
+import type { Chain } from "utils/chains/index";
 
 export interface Web3State {
   address: string;
@@ -17,7 +17,7 @@ export interface Web3State {
 }
 
 const initialState: Web3State = {
-  address: '',
+  address: "",
   balance: BigNumber.from(0),
   chainId: 0,
   inheritor: undefined,
@@ -27,7 +27,7 @@ const initialState: Web3State = {
 };
 
 const web3Slice = createSlice({
-  name: 'web3',
+  name: "web3",
   initialState,
   reducers: {
     setChainId(state: Web3State, action: PayloadAction<{ chainId: number }>) {

@@ -1,11 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Caption from 'components/Caption/Caption';
-import PrimaryButton from 'components/PrimaryButton/PrimaryButton';
-import RangeSlider from 'components/RangeSlider/RangeSlider';
-import SecondaryButton from 'components/SecondaryButton/SecondaryButton';
-import Section from 'components/Section/Section';
-import Title from 'components/Title/Title';
-import { FC } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Caption from "components/Caption/Caption";
+import PrimaryButton from "components/PrimaryButton/PrimaryButton";
+import RangeSlider from "components/RangeSlider/RangeSlider";
+import SecondaryButton from "components/SecondaryButton/SecondaryButton";
+import Section from "components/Section/Section";
+import Title from "components/Title/Title";
+import { FC } from "react";
 
 const CreatePlan: FC = () => {
   return (
@@ -17,26 +17,26 @@ const CreatePlan: FC = () => {
             text="Your profile: 0x797...31A9"
             className="my-5 text-left text-black"
           ></Caption>
-          <SecondaryButton text={'Edit'} className="" />
+          <SecondaryButton text={"Edit"} className="" />
         </div>
         <div className="flex w-screen space-x-3">
           <PrimaryButton
-            icon={<FontAwesomeIcon icon={['fab', 'twitter']} />}
+            icon={<FontAwesomeIcon icon={["fab", "twitter"]} />}
             disabled={true}
-            text={'Add'}
-            className={'w-1/12 text-green-bluish'}
+            text={"Add"}
+            className={"w-1/12 text-green-bluish"}
           />
           <PrimaryButton
             icon={<FontAwesomeIcon icon="envelope" />}
             disabled={true}
-            text={'Add'}
-            className={'w-1/12'}
+            text={"Add"}
+            className={"w-1/12"}
           />
           <PrimaryButton
-            icon={<FontAwesomeIcon icon={['fab', 'discord']} />}
+            icon={<FontAwesomeIcon icon={["fab", "discord"]} />}
             disabled={true}
-            text={'Add'}
-            className={'w-1/12'}
+            text={"Add"}
+            className={"w-1/12"}
           />
         </div>
       </section>
@@ -70,11 +70,11 @@ const CreatePlan: FC = () => {
           </Section>
 
           <div className="flex w-1/4 items-center justify-end">
-            <SecondaryButton text={'Edit'} className="h-12 " />
+            <SecondaryButton text={"Edit"} className="h-12 " />
             <PrimaryButton
               disabled={false}
-              text={'Verify life'}
-              className={'h-12 w-32 '}
+              text={"Verify life"}
+              className={"h-12 w-32 "}
             />
           </div>
         </>
@@ -111,11 +111,11 @@ const CreatePlan: FC = () => {
               </div>
 
               <div className="flex w-1/4 items-center justify-end">
-                <SecondaryButton text={'Edit'} className="h-12 " />
+                <SecondaryButton text={"Edit"} className="h-12 " />
                 <PrimaryButton
                   disabled={false}
-                  text={'Add tokens'}
-                  className={'h-auto w-auto '}
+                  text={"Add tokens"}
+                  className={"h-auto w-auto "}
                 />
               </div>
             </div>
@@ -176,11 +176,11 @@ const CreatePlan: FC = () => {
               </div>
 
               <div className="flex w-1/4 items-center justify-end">
-                <SecondaryButton text={'Edit'} className="h-12 " />
+                <SecondaryButton text={"Edit"} className="h-12 " />
                 <PrimaryButton
                   disabled={false}
-                  text={'Add beneficiaries'}
-                  className={'h-auto w-auto '}
+                  text={"Add beneficiaries"}
+                  className={"h-auto w-auto "}
                 />
               </div>
             </div>

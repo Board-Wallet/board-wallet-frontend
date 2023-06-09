@@ -1,7 +1,7 @@
-import { readContract } from '@wagmi/core';
-import { useCallback } from 'react';
-import { Address } from 'utils/Types';
-import useGetDynamicVaults from './utils/useGetDynamicVaults';
+import { readContract } from "@wagmi/core";
+import { useCallback } from "react";
+import { Address } from "utils/Types";
+import useGetDynamicVaults from "./utils/useGetDynamicVaults";
 
 function useGetBeneficiaries() {
   const dynamicVaults = useGetDynamicVaults();
@@ -12,9 +12,9 @@ function useGetBeneficiaries() {
         owner &&
         dynamicVaults &&
         (await readContract({
-          address: dynamicVaults.address ?? '',
+          address: dynamicVaults.address ?? "",
           abi: dynamicVaults.abi,
-          functionName: 'dynamicVaults',
+          functionName: "dynamicVaults",
           args: [owner],
         }))
       );

@@ -1,5 +1,5 @@
-import { ITestamentInfo } from 'mock/index';
-import { useEffect, useState } from 'react';
+import { ITestamentInfo } from "mock/index";
+import { useEffect, useState } from "react";
 
 function useLocalStorage(itemName: string, initialValue: ITestamentInfo) {
   const [error, setError] = useState(false);

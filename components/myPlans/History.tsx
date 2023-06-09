@@ -1,18 +1,18 @@
-import { faCopy } from '@fortawesome/free-regular-svg-icons';
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import {
   faCircleInfo,
   faUpRightFromSquare,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import clsx from 'clsx';
-import Box from 'components/Box/Box';
-import Button from 'components/button/Button';
-import Chip from 'components/Chip/Chip';
-import Stack from 'components/stack/Stack';
-import Image from 'next/image';
-import tokenSymbolsMappings from 'utils/helpers/tokenMappings';
-import CircleProgress from '../circleProgress/CircleProgress';
+import clsx from "clsx";
+import Box from "components/Box/Box";
+import Button from "components/button/Button";
+import Chip from "components/Chip/Chip";
+import Stack from "components/stack/Stack";
+import Image from "next/image";
+import tokenSymbolsMappings from "utils/helpers/tokenMappings";
+import CircleProgress from "../circleProgress/CircleProgress";
 
 const History = () => {
   const testament = {
@@ -57,13 +57,13 @@ const History = () => {
         <Stack className="mt-3 text-sm text-blue-gray">
           <Stack direction="row" className="!gap-2">
             <span>
-              Transaction Hash:{' '}
+              Transaction Hash:{" "}
               <span className="text-black underline">0x6c416170db7468</span>
             </span>
-            <FontAwesomeIcon icon={faCopy} style={{ cursor: 'pointer' }} />
+            <FontAwesomeIcon icon={faCopy} style={{ cursor: "pointer" }} />
             <FontAwesomeIcon
               icon={faUpRightFromSquare}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             />
           </Stack>
           <span>
@@ -76,8 +76,8 @@ const History = () => {
       </Stack>
       <div
         className={clsx(
-          'grid grid-cols-13 text-blue-gray [&>div>span:first-of-type]:mb-3 [&>div>span:first-of-type]:block',
-          '[&>div>span:first-of-type]:text-sm [&>div>span:last-of-type]:text-black'
+          "grid grid-cols-13 text-blue-gray [&>div>span:first-of-type]:mb-3 [&>div>span:first-of-type]:block",
+          "[&>div>span:first-of-type]:text-sm [&>div>span:last-of-type]:text-black"
         )}
       >
         <div className="col-span-3">
@@ -90,7 +90,7 @@ const History = () => {
             <FontAwesomeIcon
               icon={faCircleInfo}
               onClick={() => {}}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             />
           </div>
           <span className="!mb-0">0x47E...0d926</span>

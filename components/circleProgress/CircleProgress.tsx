@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import React from 'react';
+import clsx from "clsx";
+import React from "react";
 
 type Props = {
   progress?: number;
@@ -8,11 +8,11 @@ type Props = {
   reduction?: number;
   transitionDuration?: number;
   transitionTimingFunction?:
-    | 'ease'
-    | 'linear'
-    | 'ease-in'
-    | 'ease-out'
-    | 'ease-in-out';
+    | "ease"
+    | "linear"
+    | "ease-in"
+    | "ease-out"
+    | "ease-in-out";
   background?: string;
   hideBall?: boolean;
   hideValue?: boolean;
@@ -30,18 +30,18 @@ const _Progress = ({
   ballStrokeWidth = 16,
   reduction = 0,
   transitionDuration = 0.5,
-  transitionTimingFunction = 'ease',
-  background = '#dde2e9',
+  transitionTimingFunction = "ease",
+  background = "#dde2e9",
   hideBall = true,
   hideValue = true,
   gradient = [
-    { stop: 0, color: '#E21692' },
-    { stop: 1, color: '#17C0F1' },
+    { stop: 0, color: "#E21692" },
+    { stop: 1, color: "#17C0F1" },
   ],
-  subtitle = '',
+  subtitle = "",
   style,
   className,
-  suffix = '%',
+  suffix = "%",
   children,
 }: Props) => {
   progress = Math.round(progress * 100) / 100;
@@ -56,14 +56,14 @@ const _Progress = ({
 
   return (
     <>
-      <div className={clsx('relative w-52', className)} style={style}>
+      <div className={clsx("relative w-52", className)} style={style}>
         <svg
           viewBox={`0 0 ${width} ${height}`}
           className="block w-full drop-shadow-lg"
         >
           <defs>
             <linearGradient
-              id={'gradient' + unique}
+              id={"gradient" + unique}
               x1="0%"
               y1="0%"
               x2="0%"
@@ -72,7 +72,7 @@ const _Progress = ({
               {gradient.map(({ stop, color }) => (
                 <stop
                   key={stop}
-                  offset={stop * 100 + (suffix || '')}
+                  offset={stop * 100 + (suffix || "")}
                   stopColor={color}
                 />
               ))}
@@ -147,8 +147,8 @@ const _Progress = ({
         </svg>
         <div
           className={clsx(
-            'absolute inset-0 top-1/2 left-1/2 h-[80%] w-[80%] translate-x-[-50%] translate-y-[-50%]',
-            'rounded-full bg-purple-300'
+            "absolute inset-0 top-1/2 left-1/2 h-[80%] w-[80%] translate-x-[-50%] translate-y-[-50%]",
+            "rounded-full bg-purple-300"
           )}
         >
           <div className="flex h-full w-full flex-col items-center justify-center">
@@ -161,6 +161,6 @@ const _Progress = ({
 };
 
 export const CircleProgress = React.memo(_Progress);
-CircleProgress.displayName = 'CircleProgress';
+CircleProgress.displayName = "CircleProgress";
 
 export default CircleProgress;
