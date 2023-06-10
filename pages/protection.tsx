@@ -48,7 +48,7 @@ const Protection: NextPage = () => {
           "
         ></div>
         <GeneralDefaultConnectWalletTitle className="-mt-9">
-          Protect your Wealth on Web3
+          Secure your digital assets on the Web3 by safeguarding your wallet.
         </GeneralDefaultConnectWalletTitle>
         <GeneralDefaultConnectWalletDescription>
           Use our multichain protocol, a non custodial solution to{" "}

@@ -25,7 +25,8 @@ const BeneficiaryLogin = () => {
     {
       image: <Img key={0} src={tokensVault} alt="Carousel 1" />,
       top: "top-24",
-      title: "Protect your Wealth on Web3",
+      title:
+        "Secure your digital assets on the Web3 by safeguarding your wallet.",
       description: (
         <>
           Use our multi-chain protocol, that combines DeFi with a non custodial
