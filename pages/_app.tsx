@@ -8,13 +8,20 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import Layout from "components/layout";
-import { ConnectKitProvider, getDefaultClient, Types } from "connectkit";
+// import { ConnectKitProvider, getDefaultClient, Types } from "connectkit";
+import {
+  ConnectKitProvider,
+  ConnectKitButton,
+  getDefaultConfig,
+} from "connectkit";
+import { WagmiConfig, createConfig } from "wagmi";
+
 import { appWithTranslation } from "next-i18next";
 import { AppProps } from "next/app";
 import Image from "next/image";
 import { Provider } from "react-redux";
 import { store } from "store";
-import { createClient, WagmiConfig } from "wagmi";
+// import { createClient, WagmiConfig } from "wagmi";
 
 import Script from "next/script";
 import { polygonMumbai } from "wagmi/chains";
@@ -51,18 +58,35 @@ const theme = extendTheme({
 
 const mumbai = { ...polygonMumbai, name: "Mumbai" };
 
-const client = createClient(
-  getDefaultClient({
-    appName: "Peace",
-    alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
-    chains: [mumbai],
+// const client = createClient(
+//   getDefaultClient({
+//     appName: "Peace",
+//     alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+//     chains: [mumbai],
+//   })
+// );
+
+const config = createConfig(
+  getDefaultConfig({
+    // Required API Keys
+    alchemyId: process.env.ALCHEMY_ID, // or infuraId
+    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
+
+    // Required
+    appName: "Your App Name",
+
+    // Optional
+    appDescription: "Your App Description",
+    appUrl: "https://family.co", // your app's url
+    appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );
+
 library.add(fab, faEnvelope, faMagnifyingGlass, faSliders, faXmark, faTrash);
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={client}>
+    <WagmiConfig config={config}>
       <ConnectKitProvider
         theme="auto"
         mode="light"
