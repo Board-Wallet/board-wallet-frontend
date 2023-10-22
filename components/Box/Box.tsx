@@ -11,13 +11,13 @@ const Box = ({ gradient = false, children, className }: Props) => {
   return (
     <div
       className={clsx(
-        gradient ? "bg-mainHorizontal p-2" : "bg-white py-7 px-9",
+        gradient ? "bg-mainHorizontal p-2" : "bg-white px-9 py-7",
         "rounded-lg drop-shadow-lg",
         className
       )}
     >
       {gradient ? (
-        <div className="bg-white py-7 px-9">
+        <div className="bg-white px-9 py-7">
           <div>{children}</div>
         </div>
       ) : (

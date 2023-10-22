@@ -85,7 +85,7 @@ const PlanSelection = ({
                     {comingSoon && (
                       <div
                         className={clsx(
-                          "absolute top-[-14px] right-3 rounded-lg bg-blue-900 py-1.5 px-3.5 text-[8px] lg:top-[-16px] lg:px-5 lg:py-2 xl:top-[-18px] xl:px-6 xl:py-2.5",
+                          "absolute right-3 top-[-14px] rounded-lg bg-blue-900 px-3.5 py-1.5 text-[8px] lg:top-[-16px] lg:px-5 lg:py-2 xl:top-[-18px] xl:px-6 xl:py-2.5",
                           "font-bold text-white"
                         )}
                       >
@@ -105,7 +105,7 @@ const PlanSelection = ({
               testamentCreationInfo.selectedPlan !==
               MenuItemsPlanSelection.INHERITANCE
             }
-            className={"!py-2 !px-10 lg:!py-4 lg:!px-14"}
+            className={"!px-10 !py-2 lg:!px-14 lg:!py-4"}
             onClick={handleClick}
           />
         </div>

@@ -41,7 +41,7 @@ const CreatePlan: FC = () => {
         </div>
       </section>
 
-      <Title text="Inheritance plan" className="pt-20 pb-10"></Title>
+      <Title text="Inheritance plan" className="pb-10 pt-20"></Title>
 
       <Section className="rounded-xl bg-white p-10 shadow-2xl">
         <>

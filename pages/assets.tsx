@@ -211,7 +211,7 @@ const Assets: NextPage = () => {
                         direction="row"
                         className="flex-col justify-between mobile-lg:flex-row"
                       >
-                        <div className="text-center mobile-lg:mt-0 mobile-lg:mb-5 mobile-lg:text-left">
+                        <div className="text-center mobile-lg:mb-5 mobile-lg:mt-0 mobile-lg:text-left">
                           <h4 className="block capitalize text-blue-gray">
                             Performance
                           </h4>
@@ -349,7 +349,7 @@ const Assets: NextPage = () => {
                           }}
                         />
                         <Button
-                          className="hidden px-2 !py-3.5 md:inline"
+                          className="hidden !py-3.5 px-2 md:inline"
                           variant="primary"
                           text={loading ? "loading..." : "Protect"}
                           disabled={loading}

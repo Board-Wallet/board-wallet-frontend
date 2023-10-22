@@ -24,7 +24,7 @@ import { store } from "store";
 // import { createClient, WagmiConfig } from "wagmi";
 
 import Script from "next/script";
-import { polygonMumbai, zkSyncTestnet } from "wagmi/chains";
+import { scrollTestnet } from "wagmi/chains";
 
 import "../styles/globals.scss";
 // why import with require? https://github.com/FortAwesome/Font-Awesome/issues/19348
@@ -51,12 +51,11 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: "Poppins",
+   heading: "Poppins",
     body: "Poppins",
   },
 });
 
-const mumbai = { ...polygonMumbai, name: "Mumbai" };
 
 // const client = createClient(
 //   getDefaultClient({
@@ -71,9 +70,9 @@ const config = createConfig(
     // Required API Keys
     alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY, // or infuraId
     walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
-    chains: [zkSyncTestnet],
+    chains: [scrollTestnet],
     // Required
-    appName: "Your App Name",
+    appName: "Board wallet",
 
     // Optional
     appDescription: "Your App Description",

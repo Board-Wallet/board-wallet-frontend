@@ -147,7 +147,7 @@ const _Progress = ({
         </svg>
         <div
           className={clsx(
-            "absolute inset-0 top-1/2 left-1/2 h-[80%] w-[80%] translate-x-[-50%] translate-y-[-50%]",
+            "absolute inset-0 left-1/2 top-1/2 h-[80%] w-[80%] translate-x-[-50%] translate-y-[-50%]",
             "rounded-full bg-purple-300"
           )}
         >

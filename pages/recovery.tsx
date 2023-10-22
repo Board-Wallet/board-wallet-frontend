@@ -323,7 +323,7 @@ const MyPlans: NextPage = () => {
           <HeadlessDialog.Title as="h3" className="h3 text-center">
             Complete Multisig
           </HeadlessDialog.Title>
-          <Stack className="mt-4 mb-5 items-center !gap-10">
+          <Stack className="mb-5 mt-4 items-center !gap-10">
             <HeadlessDialog.Description>
               <p className="text-sm">
                 Unlock this inheritance plan and transfer the funds to the heirs
@@ -380,7 +380,7 @@ const MyPlans: NextPage = () => {
           <HeadlessDialog.Title as="h3" className="h3 text-center">
             The Inheritance is Complete
           </HeadlessDialog.Title>
-          <Stack className="mt-4 mb-5 items-center !gap-10">
+          <Stack className="mb-5 mt-4 items-center !gap-10">
             <HeadlessDialog.Description>
               <p className="text-sm">
                 The assets you were eligible has been successful transfer to

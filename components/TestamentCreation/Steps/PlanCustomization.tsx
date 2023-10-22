@@ -477,7 +477,7 @@ const PlanCustomization = ({
           </Button>
           <Button
             variant={"primary"}
-            className={"!py-2 !px-3 mobile-lg:!px-10 lg:!py-4 lg:!px-14"}
+            className={"!px-3 !py-2 mobile-lg:!px-10 lg:!px-14 lg:!py-4"}
             type="submit"
           >
             Continue

@@ -147,7 +147,7 @@ const InheritancePlan = ({
             direction="row"
             className={clsx(
               "justify-between [&>div>span:first-of-type]:text-sm",
-              "[&>div>span:first-of-type]:text-blue-gray [&>div:first-of-type]:!gap-2",
+              "[&>div:first-of-type]:!gap-2 [&>div>span:first-of-type]:text-blue-gray",
               "[&>div>span:nth-child(2)]:text-center"
             )}
           >

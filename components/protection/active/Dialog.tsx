@@ -505,7 +505,7 @@ const ProtectionActiveDialog = ({
             <Button
               variant="basic"
               text="Bulk Approval"
-              className="col-span-4 py-1 px-2"
+              className="col-span-4 px-2 py-1"
             />
           </div>
 
@@ -646,7 +646,7 @@ const ProtectionActiveDialog = ({
                       {edit.status[index] ? (
                         <TextField
                           placeHolder={"Name"}
-                          className="[&>input]:py-1 [&>input]:px-2"
+                          className="[&>input]:px-2 [&>input]:py-1"
                           name="names"
                           defaultValue={beneficiary.name && beneficiary.name}
                         />
@@ -662,7 +662,7 @@ const ProtectionActiveDialog = ({
                       {edit.status[index] ? (
                         <TextField
                           placeHolder={"Address"}
-                          className="[&>input]:py-1 [&>input]:px-2"
+                          className="[&>input]:px-2 [&>input]:py-1"
                           name="addresses"
                           defaultValue={
                             beneficiary.address_ !==
@@ -685,7 +685,7 @@ const ProtectionActiveDialog = ({
                       {edit.status[index] ? (
                         <TextField
                           placeHolder={"Percentage"}
-                          className="[&>input]:py-1 [&>input]:px-2"
+                          className="[&>input]:px-2 [&>input]:py-1"
                           type="number"
                           name="inheritancePercentages"
                           defaultValue={

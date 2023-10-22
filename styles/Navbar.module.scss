@@ -21,7 +21,7 @@
   &__button {
     &--selected {
       &:after {
-        content: '';
+        content: "";
         border-top: 3px solid #5f4dff;
         position: absolute;
         top: 42px;
